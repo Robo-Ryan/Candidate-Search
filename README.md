@@ -6,7 +6,7 @@ A React-based application for searching and managing potential GitHub candidates
 
 ### Candidate Search Page
 - Displays detailed GitHub user information including:
-  - Name
+  - Name 
   - Username
   - Location
   - Avatar
@@ -38,7 +38,7 @@ A React-based application for searching and managing potential GitHub candidates
 - Node.js (v16 or higher)
 - npm or yarn package manager
 - GitHub account and personal access token
-
+  
 ### Installation
 
 1. Clone the repository
