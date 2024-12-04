@@ -24,6 +24,13 @@ const CandidateSearch = () => {
     fetchCandidates();
   }, []);
 
+  const handleSaveCandidate = (candidate: Candidate) => {
+    const savedCandidates = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
+    if (!savedCandidates.some((saved: Candidate) => saved.id === candidate.id)) {
+      localStorage.setItem('savedCandidates', JSON.stringify([...savedCandidates, candidate]));
+    }
+  };
+
   return (
     <div style={{ padding: '1rem' }}>
       <h1>Search Candidates</h1>
@@ -37,6 +44,12 @@ const CandidateSearch = () => {
           <div key={candidate.id} style={{ border: '1px solid #ccc', padding: '1rem', borderRadius: '8px' }}>
             <img src={candidate.avatar_url} alt={candidate.login} style={{ width: '100%', borderRadius: '4px' }} />
             <h3>{candidate.login}</h3>
+            <button 
+              onClick={() => handleSaveCandidate(candidate)}
+              style={{ width: '100%', padding: '0.5rem', marginTop: '0.5rem' }}
+            >
+              Save Candidate
+            </button>
           </div>
         ))}
       </div>
