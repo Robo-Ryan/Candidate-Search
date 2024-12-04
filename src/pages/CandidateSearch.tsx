@@ -12,9 +12,11 @@ const CandidateSearch = () => {
     setError(null);
     try {
       const data = await searchGithub();
+      console.log('Fetched candidates:', data);
       setCandidates(data);
     } catch (err) {
-      setError('Failed to fetch candidates');
+      setError(err instanceof Error ? err.message : 'Failed to fetch candidates');
+      console.error('Fetch error:', err);
     } finally {
       setIsLoading(false);
     }
